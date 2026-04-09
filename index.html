@@ -50,7 +50,9 @@
             la etiqueta link permite vincular archivos
             como hojas de estilo o el icono de favoritos
         -->
-    <link rel="shortcut icon" href="img/fav-icon.png" />
+    <link rel="shortcut icon" href="img/app_icon.png" />
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
     <link rel="stylesheet" href="style.css">
  
 
@@ -117,6 +119,16 @@
         </div>
         
     </footer>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js')
+            .then((registration) => console.log('ServiceWorker registrado:', registration.scope))
+            .catch((error) => console.log('Error registro SW:', error));
+        });
+      }
+    </script>
 </body>
 
 </html>
