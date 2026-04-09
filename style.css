@@ -1,169 +1,261 @@
-.favoritos {
-    background-color: #5f1acd;
-    width: 33%;
-    
-    text-align: left;
-    line-height: 50px;
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
-   
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
 
-}
-.listas {
-    background-color: #347362;
-    width: 33%;
-    height: 135px;
-    text-align: left;
-    line-height: 50px;
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
-    
-
-}   
-.recientes {
-    background-color: #ca9e5f;
-    width: 33%;
-    height: 8%;
-    text-align: left;
-    line-height: 50px;
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 135px;
-    border-radius: 15px;
-    font-size: 36px;
-    
-
-
+:root {
+  --bg-color: #0f172a;
+  --surface: #1e293b;
+  --primary: #8b5cf6;
+  --secondary: #10b981;
+  --accent: #f59e0b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --tab-bg: rgba(15, 23, 42, 0.85);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: #000;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-main);
+  padding-bottom: 90px;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0,0,0,0.8);
+  position: relative;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+h1 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+main {
+  padding: 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Superior Menu */
 .menu {
-    display: flex;
-      background-color: #cdcfcd;
-      width: 100%;
-      height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
 
- 
+.menu > div {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.2s, background 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  color: var(--text-main);
+}
+
+.menu > div:active {
+  transform: scale(0.95);
+}
+
+.menu i {
+  font-size: 24px;
+}
+
+.favoritos i { color: #f43f5e; }
+.listas i { color: #0ea5e9; }
+.recientes i { color: var(--accent); }
+
+/* Playlists / Songs */
+.canciones {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cancion {
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  grid-template-areas: 
+    "img title"
+    "img audio";
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255,255,255,0.02);
+  transition: transform 0.2s ease;
+}
+
+.cancion:hover {
+  transform: translateY(-2px);
+  background: #233044;
+}
+
+.cancion img {
+  grid-area: img;
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3); margin: 0;
+}
+
+/* Styling the generic text node (Song name) which is mixed with the icon */
+.cancion {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Target the text nodes indirectly by making the container a flex context, 
+   wait, grid areas are better. We just need to wrap the title in HTML if possible.
+   Since title and audio are inline in original HTML, let's use flexbox for the right side! */
+   
+.cancion {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+}
+
+/* Mobile-first override layout for song cards */
+@media (min-width: 1px) {
+  .cancion {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .cancion img {
+    width: 60px;
+    height: 60px;
+    margin-right: auto;
+    order: 1;
+  }
+  /* The text node and bi-icon */
+  .cancion i {
+    order: 2;
+    color: var(--secondary);
+    margin-right: 5px;
+  }
+  /* Since Title is raw text, it flows here. We use order: 3 implicitly */
+  .cancion audio {
+    width: 100%;
+    order: 4;
+    margin-top: 10px;
+    height: 40px;
+  }
+}
+
+/* Custom Audio Styling */
+audio {
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+  border-radius: 30px;
+}
+audio::-webkit-media-controls-panel {
+  background-color: #f1f5f9;
+}
+
+/* Fixed Footer Tab Bar */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 430px;
+  background: var(--tab-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+  z-index: 100;
 }
 
 .pie {
-    display: flex;
-      background-color: #dce70c;
-     
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.musica {
-    background-color: #5f1acd;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    line-height: 50px;
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
+.pie div {
+  width: auto; height: auto;
+  background: none;
+  font-size: 11px;
+  border-radius: 0;
+  margin: 0; padding: 0;
 }
-.online {
-    background-color: #347362;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    line-height: 50px;
-    color:black
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
 
+.pie a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  gap: 4px;
+  font-weight: 500;
+  transition: color 0.2s;
 }
-.buscar {
-    background-color: #ca9e5f;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    line-height: 50px;
-    color: black;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
 
+.pie i {
+  font-size: 24px;
+  margin: 0;
+}
 
+.pie div:active a {
+  color: var(--primary);
+  transform: scale(0.95);
 }
-.ver {
-    background-color: #cdcfcd;
-    width: 25%;
-    height: 100%;
-    text-align: center;
-    line-height: 50px;
-    color: black;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
 
+.pie .musica a { color: var(--primary); }
+
+/* Remove old conflicting styles from index inline class hooks that might mess up */
+.pie > div > i { display: none; /* Hide duplicate icons since they sit next to anchor */ }
+.pie > div > a { display: flex; flex-direction: column; align-items: center; }
+.pie > div > a::before {
+  font-family: "bootstrap-icons";
+  font-size: 24px;
+  margin-bottom: 2px;
 }
-.canciones {
-    display: flex;
-    flex-direction: column;
-    background-color: #c0c0bd;
-    width: 100%;
-    height: 100%;
-}   
-.cancion {
-    background-color: #4bd287;
-    text-align: left;
-    line-height: 50px;
-    color: white;
-    font-size: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 15px;
-    font-size: 36px;
-    width: 80%;
-     display: flex;
-     align-items: center;
-}
-.img-thumbnail {
-    width: 100px;
-    height: 100px;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-h1 {
-    text-align: center;
-    color: #5f1acd;
-    font-size: 48px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+.pie .musica a::before { content: "\f41e"; } /* headphones */
+.pie .online a::before { content: "\f3ee"; } /* globe */
+.pie .buscar a::before { content: "\f52a"; } /* search */
+.pie .ver a::before { content: "\f63b"; } /* youtube */
