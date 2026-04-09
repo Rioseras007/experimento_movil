@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--
+    lang es el idioma de la página
+-->
+<html lang="es">
+<!--
+        head son los metadatos de la página
+    -->
+
+<head>
+    <!--
+            robots sirve para que la web 
+            aparezca o no en google
+        -->
+    <meta name="robots" content="noindex, nofollow">
+    <!--
+            charset utf-8 es el juego de caracteres
+            de europa occidental
+        -->
+    <meta charset="utf-8" />
+    <!--
+            title es el título de la página. Es el título
+            que pondrá google en sus resultados.
+            Cada página tendrá un title distinto.
+            Longitud máxima 70 caracteres.
+        -->
+    <title>Reproductor CD Patrulla Canina</title>
+    <!--
+            meta description es la descripción que 
+            acompaña al title en los resultados de
+            google. Longitud máxima 160 caracteres.
+        -->
+    <meta name="description" content="Ejercicios que haremos en clase del curso de confección
+                                            de páginas web" />
+    <!-- 
+            Etiqueta obsoleta. Servía para posicionar
+        palabras clave en google
+    -->
+    <meta name="keywords" content="html,css,javascript,web,curso,ejercicio" />
+    <!--
+            meta author es el autor del contenido
+        -->
+    <meta name="author" content="Alfonso Rubio " />
+    <!--
+            meta viewport adapta el contenido de forma
+            básica para verlo en móviles
+        -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+            la etiqueta link permite vincular archivos
+            como hojas de estilo o el icono de favoritos
+        -->
+    <link rel="shortcut icon" href="img/fav-icon.png" />
+    <link rel="stylesheet" href="style.css">
+ 
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+
+
+
+
+</head>
+
+
+
+<body>
+   
+    <header>
+        <h1>Reproductor CD Patrulla Canina</h1>
+      
+    </header>
+
+   
+    <main>
+        <div class="menu">
+    <div class="favoritos"><i class="bi bi-star-fill"></i> Favoritos</div>   
+    <div class="listas"><i class="bi bi-file-earmark-music"></i> Listas de reproducción</div>  
+    <div class="recientes"><i class="bi bi-clock"></i> Recientes</div>  
+    </div>
+
+    
+
+     <div class="canciones">
+        <div class="cancion"><i class="bi bi-music-note-beamed"></i>Canción 1 <audio controls><source src="pistas_audio/01_La_Patrulla_Canina.mp3" type="audio/mpeg"></audio><img  class="img-thumbnail" src="img/__track_1__la_patrulla_canina.jpg" alt="Canción 1" ></div>
+        <div class="cancion"><i class="bi bi-music-note-beamed"></i> Canción 2 <audio controls><source src="pistas_audio/02_Antonio_Rey_Loot.mp3" type="audio/mpeg"></audio><img  class="img-thumbnail" src="img/__track_2__antonio__el_rey_del_loot.jpg" alt="Canción 2" width="100px" height="100px"></div>
+        <div class="cancion"><i class="bi bi-music-note-beamed"></i> Canción 3 <audio controls><source src="pistas_audio/03_Rioseras_Tormenta.mp3" type="audio/mpeg"></audio><img class="img-thumbnail" src="img/__track_3__rioseras__p_nico_en_la_tormen.jpg" alt="Canción 3" ></div>
+        <div class="cancion"><i class="bi bi-music-note-beamed"></i> Canción 4 <audio controls><source src="pistas_audio/04_Murciano_Pro_Kills.mp3" type="audio/mpeg"></audio><img class="img-thumbnail" src="img/__track_4__el_murciano__m_quina_de_kills.jpg" alt="Canción 4" width="100px" height="100px"></div>
+        <div class="cancion"><i class="bi bi-music-note-beamed"></i> Canción 5 <audio controls><source src="pistas_audio/05_La_Patrulla_Canina.mp3" type="audio/mpeg"></audio><img class="img-thumbnail" src="img/__track_5__gerbi__el_comandante_loco.jpg" alt="Canción 5" width="100px" height="100px"></div>
+        <div class="cancion"><i class="bi bi-music-note-beamed"></i> Canción 6 <audio controls><source src="pistas_audio/06_Battle_Bus.mp3" type="audio/mpeg"></audio><img class="img-thumbnail" src="img/__track_6__amigos_en_el_battle_bus.jpg" alt="Canción 6" width="100px" height="100px"></div>
+
+
+    </div>
+    </main>
+
+  
+    <footer>
+
+        <div class="pie">
+            <div class="musica"><i class="bi bi-headphones"></i><a href="https://www.music.com" target="_blank"> Mi música</a></div>
+            <div class="online"><i class="bi bi-globe"></i><a href="https://www.internet.com" target="_blank"> Online</a></div>
+            <div class="buscar"><i class="bi bi-search"></i><a href="https://www.google.com" target="_blank"> Buscar</a></div>
+            <div class="ver"><i class="bi bi-youtube"></i><a href="https://www.youtube.com" target="_blank"> Ver</a></div>
+        </div>
+        
+    </footer>
+</body>
+
+</html>
