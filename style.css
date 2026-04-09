@@ -96,9 +96,14 @@ main {
   font-size: 24px;
 }
 
-.favoritos i { color: #f43f5e; }
-.listas i { color: #0ea5e9; }
-.recientes i { color: var(--accent); }
+.favoritos { background-color: #5f1acd; border: none; }
+.favoritos i, .favoritos { color: #ffffff; }
+
+.listas { background-color: #347362; border: none; }
+.listas i, .listas { color: #ffffff; }
+
+.recientes { background-color: #ca9e5f; border: none; }
+.recientes i, .recientes { color: #ffffff; }
 
 /* Playlists / Songs */
 .canciones {
