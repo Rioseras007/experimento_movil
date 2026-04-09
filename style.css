@@ -252,15 +252,5 @@ footer {
 
 .pie .musica a { color: var(--primary); }
 
-/* Remove old conflicting styles from index inline class hooks that might mess up */
-.pie > div > i { display: none; /* Hide duplicate icons since they sit next to anchor */ }
+/* Layout for anchor tags since <i> tags are now safely inside them */
 .pie > div > a { display: flex; flex-direction: column; align-items: center; }
-.pie > div > a::before {
-  font-family: "bootstrap-icons";
-  font-size: 24px;
-  margin-bottom: 2px;
-}
-.pie .musica a::before { content: "\f41e"; } /* headphones */
-.pie .online a::before { content: "\f3ee"; } /* globe */
-.pie .buscar a::before { content: "\f52a"; } /* search */
-.pie .ver a::before { content: "\f63b"; } /* youtube */
