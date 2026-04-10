@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ejercicios que haremos en clase del curso de confección
+                                            de páginas web" />
+    <!-- 
+            Etiqueta obsoleta. Servía para posicionar
+        palabras clave en google
+    -->
+    <meta name="keywords" content="html,css,javascript,web,curso,ejercicio" />
+    <!--
+            meta author es el autor del contenido
+        -->
+    <meta name="author" content="Alfonso Rubio " />
+    <!--
+            meta viewport adapta el contenido de forma
+            básica para verlo en móviles
+        -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--
+            la etiqueta link permite vincular archivos
+            como hojas de estilo o el icono de favoritos
+        -->
+    <link rel="shortcut icon" href="img/app_icon.png" />
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
+    <link rel="stylesheet" href="style2.css">
+ 
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"
+    integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y"
+    crossorigin="anonymous"></script>
+
+<title>Lista de Reproducción MP3</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f4;
+        color: #fff;
+      
+        
+    }
+    audio {
+        width: 320px;
+      
+    }
+    button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .botones {
+       
+        background-color: aqua;
+        width: 400px;
+        margin-top: 10px;
+        display: flex;
+        height: 80px;
+        border: #222 solid 2px;
+        border-radius: 15px;
+            margin-left: 70px;
+            justify-content: center;
+            align-items: center;
+       
+    }
+
+    .player {
+        background-color: rgb(42, 165, 165);
+        width: 400px;
+        margin-top: 30px;
+        display: flex;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border: #222 solid 2px;
+        border-radius: 15px;
+         margin-left: 70px;
+    }
+
+
+
+li {
+    list-style: none;
+    padding: 0;
+    margin-left: 70px;
+    background-color: rgb(38, 39, 40);
+    width: 300px;
+     padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border: #222 solid 2px;
+        border-radius: 3px;
+        padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 10px;
+
+}  
+
+.lista 
+{
+background-color: rgb(55, 206, 125);
+width: 400px;
+
+height: 80px;
+border: #222 solid 4px;
+border-radius: 3px;
+font-size: 32px;
+margin-top: 10px;
+border-radius: 15px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 10px;
+margin-left: 70px;
+margin-top: 200px;
+
+
+
+}
+
+img.fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:550px;
+    height: 70%
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+}
+
+
+</style>
+</head>
+<body>
+<img class="fondo" src="img/fondo.jpg" alt="Fondo">
+<div class="lista">🎵 Lista de Reproducción</div>
+<div class="player">  <audio id="player" controls></audio></div>
+<div class="botones">
+    <hr>
+    <button onclick="prevSong()">⏮ Anterior</button>
+    <button onclick="playPause()">⏯ Reproducir/Pausar</button>
+    <button onclick="nextSong()">⏭ Siguiente</button>
+</div>
+
+<ul id="playlist"></ul>
+
+<script>
+// Lista de canciones (URLs o rutas locales)
+const songs = [
+    { title: "Canción 1: La Patrulla Canina", file: "pistas_audio/01_La_Patrulla_Canina.mp3" },
+    { title: "Canción 2: Antonio Rey Loot", file: "pistas_audio/02_Antonio_Rey_Loot.mp3" },
+    { title: "Canción 3: Rioseras Tormenta", file: "pistas_audio/03_Rioseras_Tormenta.mp3" },
+    { title: "Canción 4: Murciano Pro Kills", file: "pistas_audio/04_Murciano_Pro_Kills.mp3" },
+    { title: "Canción 5: La Patrulla Canina", file: "pistas_audio/05_La_Patrulla_Canina.mp3" },
+    { title: "Canción 6: Rioseras Tormenta", file: "pistas_audio/06_Rioseras_Tormenta.mp3" },
+    { title: "Canción 7: Pisos Picados", file: "pistas_audio/07_Pisos_Picados.mp3" },
+    { title: "Canción 8: Baile de la Victoria", file: "pistas_audio/08_Baile_Victoria.mp3" },
+    { title: "Canción 9: Medikit para el Alma", file: "pistas_audio/09_Medikit_Alma.mp3" },
+    { title: "Canción 10: Salto del Comandante", file: "pistas_audio/10_Salto_Gerbi.mp3" },
+    { title: "Canción 11: Victoria Magistral", file: "pistas_audio/11_Victoria_Magistral.mp3" },
+    { title: "Canción 12: GG Patrulla", file: "pistas_audio/12_GG_Patrulla.mp3" }
+    
+
+
+];
+
+let currentSong = 0;
+const player = document.getElementById("player");
+const playlistEl = document.getElementById("playlist");
+
+// Cargar lista en HTML
+songs.forEach((song, index) => {
+    const li = document.createElement("li");
+    li.textContent = song.title;
+    li.style.cursor = "pointer";
+    li.onclick = () => loadSong(index, true);
+    playlistEl.appendChild(li);
+});
+
+// Cargar canción
+function loadSong(index, autoplay = false) {
+    if (index < 0) index = songs.length - 1;
+    if (index >= songs.length) index = 0;
+    currentSong = index;
+    player.src = songs[currentSong].file;
+    if (autoplay) player.play();
+}
+
+// Reproducir / Pausar
+function playPause() {
+    if (player.paused) {
+        player.play();
+    } else {
+        player.pause();
+    }
+}
+
+// Canción anterior
+function prevSong() {
+    loadSong(currentSong - 1, true);
+}
+
+// Canción siguiente
+function nextSong() {
+    loadSong(currentSong + 1, true);
+}
+
+// Pasar automáticamente a la siguiente
+player.addEventListener("ended", nextSong);
+
+// Cargar la primera canción al iniciar
+loadSong(currentSong);
+</script>
+  <footer>
+
+        <div class="pie">
+            <div class="musica"><a href="index.html" target="_blank"><i class="bi bi-headphones"></i> Mi música</a></div>
+            <div class="online"><a href="https://www.internet.com" target="_blank"><i class="bi bi-globe"></i> Online</a></div>
+            <div class="buscar"><a href="https://www.google.com" target="_blank"><i class="bi bi-search"></i> Buscar</a></div>
+            <div class="ver"><a href="https://www.youtube.com" target="_blank"><i class="bi bi-youtube"></i> Ver</a></div>
+        </div>
+        
+    </footer>
+
+
+</body>
+</html>
+

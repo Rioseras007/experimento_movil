@@ -1,0 +1,163 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f4;
+        color: #fff;
+      
+        
+    }
+    audio {
+        width: 320px;
+      
+    }
+    button {
+        margin: 5px;
+        padding: 10px 15px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .botones {
+       
+        background-color: aqua;
+        width: 400px;
+        margin-top: 10px;
+        display: flex;
+        height: 80px;
+        border: #222 solid 2px;
+        border-radius: 15px;
+            margin-left: 70px;
+            justify-content: center;
+            align-items: center;
+       
+    }
+
+    .player {
+        background-color: rgb(42, 165, 165);
+        width: 400px;
+        margin-top: 30px;
+        display: flex;
+        height: 80px;
+        justify-content: center;
+        align-items: center;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border: #222 solid 2px;
+        border-radius: 15px;
+         margin-left: 70px;
+    }
+
+
+
+li {
+    list-style: none;
+    padding: 0;
+    margin-left: 70px;
+    background-color: rgb(38, 39, 40);
+    width: 300px;
+     padding-left: 5px;
+        padding-right: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        border: #222 solid 2px;
+        border-radius: 3px;
+        padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 10px;
+
+}  
+
+.lista 
+{
+background-color: rgb(55, 206, 125);
+width: 400px;
+
+height: 80px;
+border: #222 solid 4px;
+border-radius: 3px;
+font-size: 32px;
+margin-top: 10px;
+border-radius: 15px;
+padding-bottom: 10px;
+padding-left: 10px;
+padding-right: 10px;
+padding-top: 10px;
+margin-left: 70px;
+margin-top: 200px;
+
+
+
+}
+
+img.fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:550px;
+    height: 70%
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
+}
+
+/* Fixed Footer Tab Bar */
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 430px;
+  background: var(--tab-bg);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.pie {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pie div {
+  width: auto; height: auto;
+  background: none;
+  font-size: 11px;
+  border-radius: 0;
+  margin: 10px; padding: 0;
+}
+
+.pie a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-muted);
+  gap: 4px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.pie i {
+  font-size: 24px;
+  margin: 10px;
+}
+
+.pie div:active a {
+  color: var(--primary);
+  transform: scale(0.95);
+}
+
+.pie .musica a { color: var(--primary); }
+
+/* Layout for anchor tags since <i> tags are now safely inside them */
+.pie > div > a { display: flex; flex-direction: column; align-items: center; }
+
+
